@@ -1,0 +1,176 @@
+{
+  "transactions": [
+    {
+      "id": "1",
+      "title": "Monthly Salary",
+      "amount": 5000,
+      "type": "income",
+      "category": "Salary",
+      "date": "2024-03-01",
+      "note": "March salary"
+    },
+    {
+      "id": "2",
+      "title": "Grocery Shopping",
+      "amount": 120,
+      "type": "expense",
+      "category": "Food",
+      "date": "2024-03-02",
+      "note": "Weekly groceries"
+    },
+    {
+      "id": "3",
+      "title": "Netflix Subscription",
+      "amount": 15,
+      "type": "expense",
+      "category": "Entertainment",
+      "date": "2024-03-03",
+      "note": ""
+    },
+    {
+      "id": "4",
+      "title": "Freelance Project",
+      "amount": 800,
+      "type": "income",
+      "category": "Freelance",
+      "date": "2024-03-05",
+      "note": "Logo design project"
+    },
+    {
+      "id": "5",
+      "title": "Electricity Bill",
+      "amount": 90,
+      "type": "expense",
+      "category": "Housing",
+      "date": "2024-03-06",
+      "note": ""
+    },
+    {
+      "id": "6",
+      "title": "Uber Ride",
+      "amount": 25,
+      "type": "expense",
+      "category": "Transport",
+      "date": "2024-03-07",
+      "note": "Office commute"
+    },
+    {
+      "id": "7",
+      "title": "Amazon Shopping",
+      "amount": 200,
+      "type": "expense",
+      "category": "Shopping",
+      "date": "2024-03-08",
+      "note": "Home essentials"
+    },
+    {
+      "id": "8",
+      "title": "Gym Membership",
+      "amount": 40,
+      "type": "expense",
+      "category": "Health",
+      "date": "2024-03-09",
+      "note": "Monthly membership"
+    },
+    {
+      "id": "9",
+      "title": "Freelance Project",
+      "amount": 1200,
+      "type": "income",
+      "category": "Freelance",
+      "date": "2024-03-12",
+      "note": "Website redesign"
+    },
+    {
+      "id": "10",
+      "title": "Restaurant Dinner",
+      "amount": 65,
+      "type": "expense",
+      "category": "Food",
+      "date": "2024-03-13",
+      "note": "Family dinner"
+    },
+    {
+      "id": "11",
+      "title": "Spotify",
+      "amount": 10,
+      "type": "expense",
+      "category": "Entertainment",
+      "date": "2024-03-14",
+      "note": ""
+    },
+    {
+      "id": "12",
+      "title": "Petrol",
+      "amount": 50,
+      "type": "expense",
+      "category": "Transport",
+      "date": "2024-03-15",
+      "note": "Full tank"
+    },
+    {
+      "id": "13",
+      "title": "Doctor Visit",
+      "amount": 80,
+      "type": "expense",
+      "category": "Health",
+      "date": "2024-03-16",
+      "note": "General checkup"
+    },
+    {
+      "id": "14",
+      "title": "Rent Payment",
+      "amount": 1200,
+      "type": "expense",
+      "category": "Housing",
+      "date": "2024-03-17",
+      "note": "March rent"
+    },
+    {
+      "id": "15",
+      "title": "Monthly Salary",
+      "amount": 5000,
+      "type": "income",
+      "category": "Salary",
+      "date": "2024-04-01",
+      "note": "April salary"
+    },
+    {
+      "id": "16",
+      "title": "Grocery Shopping",
+      "amount": 95,
+      "type": "expense",
+      "category": "Food",
+      "date": "2024-04-03",
+      "note": ""
+    },
+    {
+      "id": "17",
+      "title": "New Shoes",
+      "amount": 110,
+      "type": "expense",
+      "category": "Shopping",
+      "date": "2024-04-05",
+      "note": "Running shoes"
+    },
+    {
+      "id": "19",
+      "title": "Internet Bill",
+      "amount": 45,
+      "type": "expense",
+      "category": "Housing",
+      "date": "2024-04-10",
+      "note": ""
+    },
+    {
+      "title": "Monthly Salary",
+      "amount": 20000,
+      "type": "income",
+      "category": "Salary",
+      "date": "2026-04-03",
+      "note": "Salary Credited",
+      "id": "7jn-yxo78Yo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
