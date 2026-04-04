@@ -1,4 +1,4 @@
-import type { TransactionType, Category } from '../../types/transaction.types'
+import type { TransactionType } from '../../types/transaction.types'
 import { CATEGORY_COLORS } from '../../constants/chartColors'
 
 interface BadgeProps {

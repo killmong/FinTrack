@@ -28,9 +28,7 @@ const Transactions = () => {
   // Filter + Sort
 
   const {
-    transactions,
     filtered,
-    loading,
     addTransaction,
     updateTransaction,
     deleteTransaction,

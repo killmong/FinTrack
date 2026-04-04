@@ -73,9 +73,9 @@ const SummaryCard = ({
   const styles = typeStyles[type];
 
   return (
-    <Card delay={delay}>
+    <Card >
       <div
-        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${styles.background} opacity-60`}
+        className={`absolute inset-0 rounded-2xl bg-linear-to-br ${styles.background} opacity-60`}
       />
       <div className="relative flex items-start justify-between">
         <div className="flex flex-col gap-2">
@@ -104,7 +104,7 @@ const SummaryCard = ({
 
         <motion.div
           whileHover={{ rotate: 10, scale: 1.1 }}
-          className={`bg-gradient-to-br ${styles.icon} p-3 rounded-xl shadow-lg ${styles.shadow}`}
+          className={`bg-linear-to-br ${styles.icon} p-3 rounded-xl shadow-lg ${styles.shadow}`}
         >
           <Icon className="w-5 h-5 text-white" />
         </motion.div>

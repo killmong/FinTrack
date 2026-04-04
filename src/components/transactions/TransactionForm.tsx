@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import type { Transaction, NewTransaction } from "../../types/transaction.types";
-import  { CATEGORIES } from "../../constants/categories";
+// import  { CATEGORIES } from "../../constants/categories";
 import {
   EXPENSE_CATEGORIES,
   INCOME_CATEGORIES,

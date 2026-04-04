@@ -68,7 +68,7 @@ const Navbar = () => {
           animate={{ scale: 1, opacity: 1 }}
           className={`hidden sm:inline-block text-xs font-medium px-2.5 py-1 rounded-full ${
             role === "admin"
-              ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white"
+              ? "bg-linear-to-r from-orange-500 to-pink-500 text-white"
               : "bg-surface-100 text-surface-600 dark:bg-surface-800 dark:text-surface-400"
           }`}
         >
