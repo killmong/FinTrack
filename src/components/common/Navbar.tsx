@@ -45,7 +45,7 @@ const Navbar = () => {
         {/* Role Switcher */}
         <div className="flex items-center gap-2">
           {/* Hide "Role:" label on small screens */}
-          <span className="hidden sm:inline text-sm text-surface-500 dark:text-surface-400">
+          <span className="hidden sm:inline text-sm text-orange-500">
             Role:
           </span>
           <select

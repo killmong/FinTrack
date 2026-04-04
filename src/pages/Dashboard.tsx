@@ -57,7 +57,7 @@ const Dashboard = () => {
         <h1 className="text-xl font-bold text-surface-900 dark:text-white">
           Dashboard
         </h1>
-        <p className="text-sm text-surface-500 dark:text-surface-400 mt-0.5">
+        <p className="text-sm text-white dark:text-surface-400 mt-0.5">
           Your financial overview at a glance
         </p>
       </motion.div>

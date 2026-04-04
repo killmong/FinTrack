@@ -79,7 +79,7 @@ const SummaryCard = ({
       />
       <div className="relative flex items-start justify-between">
         <div className="flex flex-col gap-2">
-          <span className="text-sm font-medium text-surface-500 dark:text-surface-400">
+          <span className="text-sm font-medium text-gray-800 dark:text-gray-50">
             {title}
           </span>
           <span className={`text-2xl font-bold ${styles.amount}`}>
