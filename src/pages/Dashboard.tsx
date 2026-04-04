@@ -12,19 +12,27 @@ import BalanceTrendChart from "../components/dashboard/BalanceTrendChart";
 import SpendingBreakdownChart from "../components/dashboard/SpendingBreakdownChart";
 import RecentTransactions from "../components/dashboard/RecentTransactions";
 import PageWrapper from "../components/common/PageWrapper";
-
+import { useMemo } from "react";
 const ease = cubicBezier(0.25, 0.46, 0.45, 0.94);
 
 const Dashboard = () => {
   const { transactions, fetchTransactions, loading } = useTransactionStore();
 
   useEffect(() => {
-    console.log("Fetching transactions for dashboard...");
-    fetchTransactions();
-  }, []);
+    if (transactions.length === 0) {
+      console.log("Fetching transactions for dashboard...");
+      fetchTransactions();
+    }
+  }, [transactions.length, fetchTransactions]);
 
-  const summary = getDashboardSummary(transactions);
-  const monthChange = getMonthOverMonthChange(transactions);
+  const summary = useMemo(
+    () => getDashboardSummary(transactions),
+    [transactions],
+  );
+  const monthChange = useMemo(
+    () => getMonthOverMonthChange(transactions),
+    [transactions],
+  );
 
   if (loading) {
     return (
