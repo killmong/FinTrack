@@ -4,7 +4,7 @@ import { cubicBezier } from "motion/react";
 import toast from "react-hot-toast";
 import Modal from "../common/Modal";
 import Button from "../common/Button";
-import FileUploader from "./FileUpLoader";
+import FileUploader from "./FileUploader";
 import TransactionPreview from "./TransactionPreview";
 import ImportSummary from "./ImportSummary";
 import  {
