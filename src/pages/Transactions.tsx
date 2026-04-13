@@ -16,10 +16,13 @@ import { useTransactions } from "../hooks/useTransactions";
 import { exportToCSV, exportToJSON } from "../utils/exportData";
 import { Download } from "lucide-react";
 import PageWrapper from "../components/common/PageWrapper";
+import { FileUp } from "lucide-react";
+import ImportModal from "../components/import/ImportModal";
 const Transactions = () => {
   useTransactionStore();
   const { role } = useRoleStore();
   const permissions = ROLES[role];
+  const [isImportOpen, setIsImportOpen] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingTransaction, setEditingTransaction] =
@@ -27,12 +30,8 @@ const Transactions = () => {
 
   // Filter + Sort
 
-  const {
-    filtered,
-    addTransaction,
-    updateTransaction,
-    deleteTransaction,
-  } = useTransactions();
+  const { filtered, addTransaction, updateTransaction, deleteTransaction } =
+    useTransactions();
   const handleAdd = async (data: NewTransaction) => {
     await addTransaction(data);
     toast.success("Transaction added");
@@ -88,7 +87,6 @@ const Transactions = () => {
               <Download className="w-4 h-4" />
               CSV
             </Button>
-
             <Button
               variant="secondary"
               onClick={() => {
@@ -99,13 +97,21 @@ const Transactions = () => {
               <Download className="w-4 h-4" />
               JSON
             </Button>
-
             {permissions.canAdd && (
               <Button onClick={() => setIsModalOpen(true)}>
                 <Plus className="w-4 h-4" />
                 Add Transaction
               </Button>
             )}
+            <Button variant="secondary" onClick={() => setIsImportOpen(true)}>
+              <FileUp className="w-4 h-4" />
+              Import SBI
+            </Button>
+            // Add modal at bottom of return
+            <ImportModal
+              isOpen={isImportOpen}
+              onClose={() => setIsImportOpen(false)}
+            />
           </div>
         </div>
 
