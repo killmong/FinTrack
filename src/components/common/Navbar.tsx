@@ -1,14 +1,16 @@
 import { useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, LogOut } from "lucide-react";
 import { motion } from "motion/react";
 import { useRoleStore } from "../../store/useRoleStore";
 import { ROLE_OPTIONS, ROLES } from "../../constants/roles";
 import type { Role } from "../../types/role.types";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useAuthStore } from "../../store/useAuthStore";
 
 const Navbar = () => {
   const { role, setRole } = useRoleStore();
   const [darkMode, setDarkMode] = useLocalStorage<boolean>("darkMode", false);
+  const { user, logout } = useAuthStore();
 
   useEffect(() => {
     if (darkMode) {
@@ -36,7 +38,7 @@ const Navbar = () => {
       className="h-16 bg-white dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 flex items-center justify-between pr-4 pl-16 md:px-6"
     >
       {/* Left */}
-      <h1 className="text-sm sm:text-base font-semibold text-surface-800 dark:text-surface-100 truncate pr-2">
+      <h1 className="text-sm sm:text-base font-semibold text-surface-800 dark:text-gray-50 truncate pr-2">
         Welcome back
       </h1>
 
@@ -51,7 +53,7 @@ const Navbar = () => {
           <select
             value={role}
             onChange={(e) => setRole(e.target.value as Role)}
-            className="text-xs sm:text-sm border border-surface-200 dark:border-surface-700 rounded-lg px-2 py-1.5 sm:px-3 bg-white dark:bg-surface-800 text-surface-800 dark:text-surface-100 focus:outline-none focus:ring-2 focus:ring-orange-500 cursor-pointer"
+            className="text-xs sm:text-sm border border-surface-200 dark:border-surface-700 rounded-lg px-2 py-1.5 sm:px-3 bg-white dark:bg-surface-800 text-surface-800 dark:text-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 cursor-pointer"
           >
             {ROLE_OPTIONS.map((r) => (
               <option key={r} value={r}>
@@ -61,26 +63,32 @@ const Navbar = () => {
           </select>
         </div>
 
-        {/* Role Badge - Hidden on small screens to save space */}
-        <motion.span
-          key={role}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className={`hidden sm:inline-block text-xs font-medium px-2.5 py-1 rounded-full ${
-            role === "admin"
-              ? "bg-linear-to-r from-orange-500 to-pink-500 text-white"
-              : "bg-surface-100 text-surface-600 dark:bg-surface-800 dark:text-surface-400"
-          }`}
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-100 dark:bg-surface-800">
+          <div className="w-6 h-6 rounded-full bg-linear-to-br from-orange-500 to-pink-500 flex items-center justify-center">
+            <span className="text-white text-xs font-bold">
+              {user?.name?.charAt(0).toUpperCase()}
+            </span>
+          </div>
+          <span className="text-sm font-medium text-surface-700 dark:text-gray-50 hidden sm:block">
+            {user?.name}
+          </span>
+        </div>
+
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          onClick={logout}
+          className="p-2 rounded-xl text-gray-50 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-950 transition-colors"
+          title="Logout"
         >
-          {role === "admin" ? "⚡ Admin" : "👁 Viewer"}
-        </motion.span>
+          <LogOut className="w-5 h-5" />
+        </motion.button>
 
         {/* Dark Mode Toggle */}
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setDarkMode(!darkMode)}
-          className="p-2 rounded-xl text-surface-500 hover:bg-orange-50 dark:hover:bg-surface-800 dark:text-surface-400 transition-colors shrink-0"
+          className="p-2 rounded-xl text-surface-500 hover:bg-orange-50 dark:hover:bg-surface-800 dark:text-gray-50 transition-colors shrink-0"
         >
           {darkMode ? (
             <Sun className="w-5 h-5 text-orange-500" />

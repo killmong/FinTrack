@@ -17,18 +17,18 @@ interface TransactionStore {
   deleteTransaction: (id: string) => Promise<void>;
 }
 
-export const useTransactionStore = create<TransactionStore>((set) => ({
+export const useTransactionStore = create<TransactionStore>()((set, get) => ({
   transactions: [],
   loading: false,
   error: null,
 
   fetchTransactions: async () => {
+    if (get().transactions.length > 0) return;
     set({ loading: true, error: null });
     try {
       const data = await getTransactions();
       set({ transactions: data, loading: false });
-    } catch (err) {
-      console.error("Error fetching transactions:", err);
+    } catch {
       set({ error: "Failed to fetch transactions", loading: false });
     }
   },
@@ -39,8 +39,7 @@ export const useTransactionStore = create<TransactionStore>((set) => ({
       set((state) => ({
         transactions: [newTransaction, ...state.transactions],
       }));
-    } catch (err) {
-      console.error("Error adding transaction:", err);
+    } catch {
       set({ error: "Failed to add transaction" });
     }
   },
@@ -50,11 +49,10 @@ export const useTransactionStore = create<TransactionStore>((set) => ({
       const updated = await updateTransaction(id, data);
       set((state) => ({
         transactions: state.transactions.map((t) =>
-          t.id === id ? updated : t,
+          t.id === id || (t as any)._id === id ? updated : t,
         ),
       }));
-    } catch (err) {
-      console.error("Error adding transaction:", err);
+    } catch {
       set({ error: "Failed to update transaction" });
     }
   },
@@ -63,10 +61,11 @@ export const useTransactionStore = create<TransactionStore>((set) => ({
     try {
       await deleteTransaction(id);
       set((state) => ({
-        transactions: state.transactions.filter((t) => t.id !== id),
+        transactions: state.transactions.filter(
+          (t) => t.id !== id && (t as any)._id !== id,
+        ),
       }));
-    } catch (err) {
-      console.error("Error adding transaction:", err);
+    } catch {
       set({ error: "Failed to delete transaction" });
     }
   },
